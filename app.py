@@ -1,7 +1,6 @@
 # importing the important libary
 import pandas as pd
 import numpy as np
-!pip install pandas_datareader
 import pandas_datareader as data
 import matplotlib.pyplot as plt
 import streamlit as st
