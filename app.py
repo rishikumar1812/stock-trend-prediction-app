@@ -1,19 +1,12 @@
-# importing the important libary
-import pandas as pd
-import numpy as np
-import pandas_datareader as data
-import matplotlib.pyplot as plt
-import streamlit as st
-from keras.models import load_model
-
 # fetch the data from yahoo finance
 import yfinance as yf
 import pandas as pd
+import datetime as dt
 
 # Define the ticker symbol and date range
 
 start_date = "2018-01-01"
-end_date = "2024-07-02"
+end_date = dt.datetime.now()
 
 st.title('Stock Trend Prediction')
 
@@ -106,3 +99,4 @@ plt.xlabel('Time')
 plt.ylabel('Price')
 plt.legend()
 st.pyplot(fig2)
+
