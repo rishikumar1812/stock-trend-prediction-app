@@ -5,4 +5,4 @@ pandas_datareader==1.16.0
 keras==3.4.1
 matplot==3.7.1
 datetime==5.5
-
+streamlit==1.36.0
