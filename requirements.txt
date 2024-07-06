@@ -1,9 +1,9 @@
 numpy==1.24.4
-pandas==2.2.2
+pandas== 1.5.3
 streamlit==1.36.0
 streamlit_extras==0.4.3
 yfinance==0.2.40
 pandas-datareader==0.10.0
 uv==0.2.21
 keras==3.4.1
-tensorflow==2.16.2
+transformers==2.1.1
