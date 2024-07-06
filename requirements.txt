@@ -8,6 +8,6 @@ protobuf==5.27.2
 regex==2024.5.15
 s3transfer==0.10.2
 sacremoses==0.1.1
-sentencepiece==[2024-07-06 09:13:02.641261] 0.2.0
+sentencepiece==0.2.0
 tqdm==4.66.4
 transformers==2.1.1
