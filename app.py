@@ -86,7 +86,18 @@ print(data_training)
 print(data_testing)
 
 #loading the model
-model = load_model('my_model.keras')
+from keras.models import load_model
+
+model_path = 'my_model.keras'
+
+try:
+    model = load_model(model_path)
+    print("Model loaded successfully.")
+except FileNotFoundError:
+    print(f"File not found: {model_path}. Please check the filepath.")
+except Exception as e:
+    print(f"Error loading the model: {e}")
+
 
 #testing part
 past_100_days  = data_training.tail(100)
