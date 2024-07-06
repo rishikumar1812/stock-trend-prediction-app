@@ -1,7 +1,7 @@
 numpy==1.24.3
 pandas==1.5.3
 yfinance==0.2.40
-pandas_datareader==1.16.0
+pandas_datareader==0.10.0
 keras==3.4.1
 matplot==3.7.1
 datetime==5.5
