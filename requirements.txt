@@ -4,3 +4,4 @@ streamlit==1.36.0
 streamlit_extras==0.4.3
 yfinance==0.2.40
 pandas-datareader==0.10.0
+uv==0.2.21
