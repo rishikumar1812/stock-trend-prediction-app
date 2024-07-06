@@ -34,9 +34,22 @@ Here are the top 10 tickers from Yahoo Finance:
 
 These tickers can be used for searching financial information on this website.''')
 
-user_input=st.text_input("Enter Your Tocken")
-# Download historical data using yfinance
-data = yf.download(user_input, start=start_date, end=end_date)
+
+user_input = st.text_input("Enter stock ticker:", "AAPL")
+start_date = "2018-01-01"
+end_date = dt.datetime.now()
+
+# Fetch data
+try:
+    data = yf.download(user_input, start=start_date, end=end_date)
+    
+    # Check if data is empty
+    if data.empty:
+        st.error("No data found for the given ticker and date range.")
+    else:
+        st.write(data)
+except Exception as e:
+    st.error(f"Error fetching data: {e}")
 
 # Create a Pandas DataFrame
 df = pd.DataFrame(data)
