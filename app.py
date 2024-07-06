@@ -76,7 +76,7 @@ print(data_testing)
 
 #loading the model
 filepath= 'my_model.keras'
-model = load_model(filepath.keras)
+model = load_model(filepath)
 
 #testing part
 past_100_days  = data_training.tail(100)
