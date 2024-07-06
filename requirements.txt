@@ -6,3 +6,4 @@ yfinance==0.2.40
 pandas-datareader==0.10.0
 uv==0.2.21
 keras==3.4.1
+tensorflow==2.16.2
