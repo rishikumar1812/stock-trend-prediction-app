@@ -79,39 +79,10 @@ from sklearn.preprocessing import MinMaxScaler
 scaler= MinMaxScaler(feature_range=(0,1))
 scaled_data = scaler.fit_transform(df)
 data_training_array= scaler.fit_transform(data_training)
-data_training_array
 
-# Now dividing the data in xtrain and ytrain
-x_train= []
-y_train = []
+#load model
+model= load_model('my_model.keras')
 
-
-for i in range(100,data_training_array.shape[0]):
-    x_train.append(data_training_array[i-100: i])
-    y_train.append(data_training_array[i,0])
-    
-    
-x_train, y_train = np.array(x_train), np.array(y_train)
-
-#LSTM model
-from keras.layers import Dense,Dropout,LSTM
-from keras.models import Sequential
-model=Sequential()
-model.add(LSTM(units=50, activation='relu', return_sequences=True,input_shape=(x_train.shape[1],1))) # input_shape=(numberof steps , no. of columns you work)
-model.add(Dropout(0.2)) 
-
-model.add(LSTM(units=60, activation='relu', return_sequences=True)) # input_shape=(numberof steps , no. of columns you work)
-model.add(Dropout(0.3)) 
-
-model.add(LSTM(units=80, activation='relu', return_sequences=True)) # input_shape=(numberof steps , no. of columns you work)
-model.add(Dropout(0.4)) 
-
-model.add(LSTM(units=120, activation='relu')) # input_shape=(numberof steps , no. of columns you work)
-model.add(Dropout(0.5)) 
-
-model.add(Dense(units=1))
-model.compile(optimizer='adam', loss='mean_squared_error')
-model.fit(x_train, y_train, epochs=50)
 
 #testing part
 past_100_days  = data_training.tail(100)
@@ -143,4 +114,5 @@ plt.xlabel('Time')
 plt.ylabel('Price')
 plt.legend()
 st.pyplot(fig2)
+
 
