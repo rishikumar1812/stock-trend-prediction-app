@@ -40,18 +40,7 @@ start_date = "2018-01-01"
 end_date = dt.datetime.now()
 
 # Fetch data
-try:
-    data = yf.download(user_input, start=start_date, end=end_date)
-    
-    # Check if data is empty
-    if data.empty:
-        st.error("No data found for the given ticker and date range.")
-    else:
-        st.write(data)
-except Exception as e:
-    st.error(f"Error fetching data: {e}")
-
-# Create a Pandas DataFrame
+data = yf.download(user_input, start=start_date, end=end_date)
 df = pd.DataFrame(data)
 
 #Describing data
@@ -86,18 +75,7 @@ print(data_training)
 print(data_testing)
 
 #loading the model
-from keras.models import load_model
-
-model_path = 'my_model.keras'
-
-try:
-    model = load_model(model_path)
-    print("Model loaded successfully.")
-except FileNotFoundError:
-    print(f"File not found: {model_path}. Please check the filepath.")
-except Exception as e:
-    print(f"Error loading the model: {e}")
-
+model = load_model('my_model.keras')
 
 #testing part
 past_100_days  = data_training.tail(100)
@@ -118,8 +96,6 @@ scaler=scaler.scale_
 scale_factor = 1/scaler[0]
 y_predicted= scale_factor*y_predicted
 y_test=scale_factor*y_test
-
-
 
 
 #Final graph
